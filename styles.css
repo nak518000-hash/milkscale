@@ -5,12 +5,12 @@ html, body {
     padding: 0;
     width: 100vw;
     height: 100vh;
-    overflow: hidden; /* सुनिश्चित करें कि कोई स्क्रॉल बार न हो */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF;
-    position: relative; /* बॉडी को रिलेटिव पोजीशन दें */
+    position: relative;
 }
 
 /* --- Hero Section with Full Screen Image --- */
@@ -18,33 +18,39 @@ html, body {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
-    background-size: contain; /* पूरी इमेज दिखेगी */
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-    /* background-attachment: fixed;  इसे हटा रहे हैं, कभी-कभी समस्या कर सकता है */
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute; /* हीरो सेक्शन को एब्सोल्यूट बनाएं */
+    position: absolute;
     top: 0;
     left: 0;
 }
 
-/* content-overlay को हटा दिया है, क्योंकि अब इसकी ज़रूरत नहीं */
-
 /* --- Button Container (बटन को इमेज के ऊपर फ़ोन स्क्रीन के नीचे रखने के लिए) --- */
 .button-container {
-    position: absolute; /* इसे एब्सोल्यूट पोजीशनिंग दें */
-    /* अब हम सीधे इमेज के टॉप से मापेंगे */
-    top: 50vh !important; /* <--- मुख्य बदलाव: Viewport Height का उपयोग करें (70% नीचे) */
-                           /* '!important' यह सुनिश्चित करेगा कि यह नियम लागू हो */
-    left: 50% !important; /* <--- इसे केंद्र में रखने के लिए */
-    transform: translate(-50%, -50%) !important; /* <--- खुद को केंद्र में लाएं और थोड़ा ऊपर-नीचे करें */
-    z-index: 100; /* <--- सुनिश्चित करें कि यह सब कुछ के ऊपर हो */
+    position: absolute; 
+
+    /* इसे सेंटर में लाओ */
+    left: 50% !important;
+
+    /* यहाँ से कंट्रोल करें: 
+       यह वैल्यू (उदाहरण: 200px) बटन को केंद्र से नीचे धकेलती है। 
+       इसे 150px या 250px या 300px करके देखें। 
+       यह vh से ज़्यादा प्रभावी होगा। */
+    transform: translate(-50%, 200px) !important; 
+
+    z-index: 100;
     display: flex;
     justify-content: center;
-    width: 100%; /* बटन कंटेनर पूरी चौड़ाई ले सकता है */
-    max-width: 300px; /* बटन के लिए एक अधिकतम चौड़ाई निर्धारित करें */
+    width: 100%;
+    max-width: 300px;
+
+    /* पुराने टॉप/बॉटम नियम हटा दें */
+    top: auto !important;
+    bottom: auto !important;
 }
 
 
@@ -66,7 +72,7 @@ html, body {
     text-decoration: none;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    white-space: nowrap; /* सुनिश्चित करें कि बटन टेक्स्ट एक लाइन में रहे */
+    white-space: nowrap;
 }
 
 .download-button-skyblue:hover {
@@ -81,10 +87,6 @@ html, body {
 /* --- Responsive Adjustments --- */
 @media (max-width: 600px) {
     .button-container {
-        top: 75vh !important; /* छोटे स्क्रीन पर थोड़ा और नीचे */
-    }
-    .download-button-skyblue {
-        padding: 10px 20px;
-        font-size: 16px;
+        transform: translate(-50%, 150px) !important; /* छोटे स्क्रीन पर कम नीचे धकेलें */
     }
 }
