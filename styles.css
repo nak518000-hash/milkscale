@@ -1,29 +1,29 @@
 /* --- Base Reset and Setup --- */
-html, body { /* HTML और Body दोनों को पूरा माप दें */
+html, body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    width: 100vw; /* सुनिश्चित करें कि ये पूरी viewport width लें */
-    height: 100vh; /* सुनिश्चित करें कि ये पूरी viewport height लें */
-    overflow: hidden; /* अनावश्यक स्क्रॉलिंग रोकें */
-    display: flex; /* Flexbox का उपयोग करें ताकि हीरो सेक्शन पूरी जगह ले सके */
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000; /* इमेज लोड न होने पर काला बैकग्राउंड */
+    background-color: #FFFFFF; /* <--- बैकग्राउंड कलर अब सफ़ेद */
 }
 
 /* --- Hero Section with Full Screen Image --- */
 .hero-section {
-    width: 100%; /* यह HTML/Body का 100% लेगा */
-    height: 100%; /* यह HTML/Body का 100% लेगा */
+    width: 100%;
+    height: 100%;
     background-image: url('main-background.jpg'); /* आपकी इमेज का नाम यहाँ दें */
-    background-size: contain; /* <--- इसे 'contain' किया है ताकि पूरी इमेज दिखे */
-    background-position: center center; /* इमेज को केंद्र में रखें */
+    background-size: contain; /* पूरी इमेज दिखेगी */
+    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* <--- इमेज को स्क्रॉल करने से रोकें */
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end; /* <--- बटन को इमेज के नीचे लाने के लिए */
     position: relative;
 }
 
@@ -38,14 +38,30 @@ html, body { /* HTML और Body दोनों को पूरा माप �
     justify-content: flex-end; /* बटन को नीचे रखने के लिए */
     align-items: center;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.0); /* कोई ओवरले नहीं */
-    padding-bottom: 50px; /* बटन के लिए नीचे से पैडिंग */
+    background-color: rgba(0, 0, 0, 0.0);
+    padding-bottom: 0; /* अब padding-bottom हीरो सेक्शन के justify-content से नियंत्रित होगा */
     box-sizing: border-box;
 }
 
-/* --- Sky Blue Download Button (छोटा) --- */
+/* --- Button Container (बटन को फोन स्क्रीन के नीचे रखने के लिए) --- */
+.button-container {
+    position: absolute; /* <--- इसे एब्सोल्यूट पोजीशनिंग दें */
+    /* यह मान आपकी इमेज और फ़ोन स्क्रीन के आधार पर थोड़ा एडजस्ट करना पड़ सकता है */
+    bottom: 25%; /* <--- इमेज के नीचे से 25% ऊपर (यह एडजस्ट करना पड़ सकता है) */
+    /* या तो आप बॉटम का उपयोग करें, या transform: translateY का */
+    /* transform: translateY(-XX%); */
+    z-index: 10; /* सुनिश्चित करें कि बटन इमेज के ऊपर दिखे */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+/* --- Sky Blue Download Button (छोटा और आइकन के साथ) --- */
 .download-button-skyblue {
-    display: inline-block;
+    display: inline-flex; /* आइकन और टेक्स्ट को एक लाइन में रखने के लिए */
+    align-items: center;
+    gap: 10px; /* आइकन और टेक्स्ट के बीच की दूरी */
     padding: 12px 25px;
     background-color: #00BFFF;
     color: white;
@@ -76,8 +92,7 @@ html, body { /* HTML और Body दोनों को पूरा माप �
         padding: 10px 20px;
         font-size: 16px;
     }
-    .content-overlay {
-        padding-bottom: 30px;
+    .button-container {
+        bottom: 20%; /* छोटे स्क्रीन पर बटन को थोड़ा ऊपर */
     }
 }
-
