@@ -46,7 +46,7 @@ html, body {
 .button-container {
     position: absolute;
     /* हम बटन को ऊपर से 60% नीचे ला रहे हैं, ताकि वह इमेज के केंद्र से नीचे की ओर जाए */
-    top: 70%; /* <--- मुख्य बदलाव: 70% ऊपर से नीचे लाओ */
+    top: 60%; /* <--- मुख्य बदलाव: 70% ऊपर से नीचे लाओ */
     z-index: 10;
     display: flex;
     justify-content: center;
