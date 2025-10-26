@@ -1,0 +1,80 @@
+/* --- Base Reset and Setup --- */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000; /* इमेज लोड न होने पर काला बैकग्राउंड */
+    overflow: hidden; /* अनावश्यक स्क्रॉलिंग रोकें */
+}
+
+/* --- Hero Section with Full Screen Image --- */
+.hero-section {
+    width: 100vw; /* पूरी स्क्रीन चौड़ी */
+    height: 100vh; /* पूरी स्क्रीन ऊंची */
+    background-image: url('main-background.jpg'); /* आपकी इमेज का नाम यहाँ दें */
+    background-size: cover; /* इमेज को पूरी तरह से कवर करें */
+    background-position: center; /* इमेज को केंद्र में रखें */
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* बटन को नीचे रखने के लिए */
+    align-items: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.0); /* कोई ओवरले नहीं, क्योंकि इमेज पर सब कुछ साफ़ है */
+    padding-bottom: 50px; /* बटन के लिए नीचे से पैडिंग */
+    box-sizing: border-box;
+}
+
+/* --- Sky Blue Download Button (छोटा) --- */
+.download-button-skyblue {
+    display: inline-block;
+    padding: 12px 25px; /* छोटा बटन */
+    background-color: #00BFFF; /* स्काई ब्लू कलर */
+    color: white;
+    border: none;
+    border-radius: 8px; /* गोल किनारे */
+    font-size: 18px; /* छोटा फ़ॉन्ट */
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #008DCC; /* 3D इफ़ेक्ट */
+    transition: all 0.2s;
+    text-decoration: none; /* लिंक से अंडरलाइन हटा दें */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.download-button-skyblue:hover {
+    background-color: #009ACD;
+}
+
+.download-button-skyblue:active {
+    box-shadow: 0 1px 0 #008DCC;
+    transform: translateY(3px);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .download-button-skyblue {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    .content-overlay {
+        padding-bottom: 30px; /* छोटे स्क्रीन पर बटन को थोड़ा ऊपर */
+    }
+}
