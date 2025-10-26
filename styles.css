@@ -1,35 +1,35 @@
 /* --- Base Reset and Setup --- */
 html, body {
-    font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* Viewport units का उपयोग सुनिश्चित करेगा कि यह स्क्रीन के साइज़ के अनुसार हो */
-    width: 100vw; 
-    height: 100vh;
-    overflow: hidden; /* <--- सुनिश्चित करें कि कोई स्क्रॉल बार न हो */
-    position: relative; /* Hero Section को इसके सापेक्ष रखें */
+    width: 100vw; /* <--- viewport width का 100% */
+    height: 100vh; /* <--- viewport height का 100% */
+    overflow: hidden; /* <--- कोई स्क्रॉल नहीं */
+    background-color: #FFFFFF; /* सफ़ेद बैकग्राउंड */
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* --- Hero Section with Full Screen Image --- */
+/* --- Hero Section with Full Screen Image and Button --- */
 .hero-section {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
-    background-size: contain; /* <--- इमेज पूरी तरह से फिट होगी, किनारों पर खाली जगह (सफेद) हो सकती है */
+    background-size: contain; /* <--- इमेज पूरी तरह से फिट होगी, किनारे पर खाली जगह हो सकती है */
     background-position: center center;
     background-repeat: no-repeat;
-    position: absolute; /* <--- इसे स्क्रीन के टॉप-लेफ्ट से शुरू करें */
-    top: 0;
-    left: 0;
-    display: flex; /* Flexbox का उपयोग करें ताकि बटन आसानी से रखा जा सके */
-    justify-content: center; /* हॉरिज़ॉन्टली सेंटर */
-    align-items: flex-end; /* <--- बटन को बॉटम में रखें */
-    box-sizing: border-box; /* Padding को width/height में शामिल करें */
-    padding-bottom: 50px; /* <--- बटन के लिए नीचे से पैडिंग */
-}
 
-/* button-container को हटा रहे हैं, क्योंकि बटन अब सीधे hero-section के अंदर नियंत्रित होगा */
-/* content-overlay को भी हटा रहे हैं */
+    /* Flexbox का उपयोग करें ताकि बटन को इमेज के नीचे रखा जा सके */
+    display: flex;
+    flex-direction: column; /* एलिमेंट्स को कॉलम में रखें */
+    justify-content: flex-end; /* <--- बटन को सबसे नीचे रखें */
+    align-items: center; /* बटन को हॉरिज़ॉन्टली सेंटर करें */
+
+    position: relative; /* बटन को इसके सापेक्ष पोजीशन करने के लिए */
+    box-sizing: border-box; /* Padding को width/height में शामिल करें */
+
+    /* यहाँ से बटन की पोजीशन कंट्रोल करें */
+    padding-bottom: 50px; /* <--- बटन के लिए नीचे से पैडिंग (इसे एडजस्ट करें) */
+}
 
 /* --- Sky Blue Download Button (छोटा और आइकन के साथ) --- */
 .download-button-skyblue {
@@ -50,8 +50,8 @@ html, body {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     white-space: nowrap;
-    /* यहाँ से position हटा रहे हैं क्योंकि यह flexbox में है */
-    /* transform: none; (याद रखें: इसे बटन-कंटेनर से हटा दिया है) */
+    /* सुनिश्चित करें कि बटन इमेज के ऊपर रहे */
+    z-index: 10; 
 }
 
 .download-button-skyblue:hover {
