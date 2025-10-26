@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hero-section"></div> <div id="buttonContainer" class="button-container">
+    <div class="hero-section"></div> 
+    
+    <div id="buttonContainer" class="button-container">
         <a href="https://drive.google.com/uc?export=download&id=1_vcnw0BinfcT35OInuyCxWUDAlzzA-5S" download class="download-button-skyblue">
             <i class="fab fa-android"></i> Download App <i class="fas fa-download"></i>
         </a>
@@ -26,10 +28,11 @@
         function setButtonPosition() {
             const buttonContainer = document.getElementById('buttonContainer');
 
-            // स्क्रीन की कुल ऊँचाई का 85% पर सेट करें (इसे एडजस्ट करें)
+            // स्क्रीन की कुल ऊँचाई का 85% पर सेट करें (यह बटन को नीचे की तरफ रखेगा)
             const positionFromTop = window.innerHeight * 0.85; // 0.85 का मतलब 85% नीचे
 
-            buttonContainer.style.position = 'absolute';
+            // जावास्क्रिप्ट अब केवल top और transform सेट करेगी, position CSS से आ रही है।
+            // buttonContainer.style.position = 'absolute'; // इसे CSS में सेट किया गया है
             buttonContainer.style.top = `${positionFromTop}px`;
             buttonContainer.style.left = '50%';
             buttonContainer.style.transform = 'translateX(-50%)';
@@ -38,6 +41,9 @@
         // पेज लोड होने पर और स्क्रीन का साइज़ बदलने पर पोजीशन सेट करें
         window.addEventListener('load', setButtonPosition);
         window.addEventListener('resize', setButtonPosition);
+        
+        // यदि hero-section में position: fixed का उपयोग किया गया है, तो body पर कुछ कंटेंट रखना आवश्यक है
+        // ताकि वह स्क्रॉल न करे, लेकिन चूंकि body/html की height 100% है, इसलिए यह काम करेगा।
     </script>
 </body>
 </html>
