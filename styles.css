@@ -9,21 +9,21 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FFFFFF; /* <--- बैकग्राउंड कलर अब सफ़ेद */
+    background-color: #FFFFFF;
 }
 
 /* --- Hero Section with Full Screen Image --- */
 .hero-section {
     width: 100%;
     height: 100%;
-    background-image: url('main-background.jpg'); /* आपकी इमेज का नाम यहाँ दें */
-    background-size: contain; /* पूरी इमेज दिखेगी */
+    background-image: url('main-background.jpg');
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* <--- बटन को इमेज के नीचे लाने के लिए */
+    align-items: center; /* इसे center कर दिया ताकि इमेज बीच में रहे */
     position: relative;
 }
 
@@ -35,33 +35,32 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* बटन को नीचे रखने के लिए */
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.0);
-    padding-bottom: 0; /* अब padding-bottom हीरो सेक्शन के justify-content से नियंत्रित होगा */
     box-sizing: border-box;
 }
 
-/* --- Button Container (बटन को फोन स्क्रीन के नीचे रखने के लिए) --- */
+/* --- Button Container (बटन को इमेज के ऊपर फ़ोन स्क्रीन के नीचे रखने के लिए) --- */
 .button-container {
-    position: absolute; /* <--- इसे एब्सोल्यूट पोजीशनिंग दें */
-    /* यह मान आपकी इमेज और फ़ोन स्क्रीन के आधार पर थोड़ा एडजस्ट करना पड़ सकता है */
-    bottom: 100%; /* <--- इमेज के नीचे से 25% ऊपर (यह एडजस्ट करना पड़ सकता है) */
-    /* या तो आप बॉटम का उपयोग करें, या transform: translateY का */
-    /* transform: translateY(-XX%); */
-    z-index: 10; /* सुनिश्चित करें कि बटन इमेज के ऊपर दिखे */
+    position: absolute;
+    /* हम बटन को ऊपर से 60% नीचे ला रहे हैं, ताकि वह इमेज के केंद्र से नीचे की ओर जाए */
+    top: 70%; /* <--- मुख्य बदलाव: 70% ऊपर से नीचे लाओ */
+    z-index: 10;
     display: flex;
     justify-content: center;
     width: 100%;
+    /* इसे थोड़ा ऊपर खींचने के लिए ट्रांसफॉर्म का उपयोग करें (ताकि यह 70% से थोड़ा ऊपर जाए) */
+    transform: translateY(-50%); 
 }
 
 
 /* --- Sky Blue Download Button (छोटा और आइकन के साथ) --- */
 .download-button-skyblue {
-    display: inline-flex; /* आइकन और टेक्स्ट को एक लाइन में रखने के लिए */
+    display: inline-flex;
     align-items: center;
-    gap: 10px; /* आइकन और टेक्स्ट के बीच की दूरी */
+    gap: 10px;
     padding: 12px 25px;
     background-color: #00BFFF;
     color: white;
@@ -88,11 +87,7 @@ html, body {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 600px) {
-    .download-button-skyblue {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
     .button-container {
-        bottom: 20%; /* छोटे स्क्रीन पर बटन को थोड़ा ऊपर */
+        top: 75%; /* छोटे स्क्रीन पर 75% से मापना (और नीचे) */
     }
 }
