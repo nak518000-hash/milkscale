@@ -33,18 +33,19 @@ html, body {
 .button-container {
     position: absolute; 
 
-    /* <--- मुख्य बदलाव: बटन को स्क्रीन के 85% नीचे लाओ */
-    top: 85vh !important; 
+    /* इसे पेज के वर्टिकल सेंटर पर सेट करें */
+    top: 50% !important; 
+    left: 50% !important; /* हॉरिज़ॉन्टली सेंटर */
 
-    left: 50% !important; /* केंद्र में रखें */
-    transform: translateX(-50%); /* बटन को सही केंद्र में लाएं */
+    /* <--- मुख्य बदलाव: इसे सीधे सेंटर से नीचे धकेलें (250px) */
+    transform: translate(-50%, 250px) !important; 
+    /* 250px का मतलब है कि यह वर्टिकल सेंटर से 250 पिक्सल नीचे होगा */
+
     z-index: 100; 
     display: flex;
     justify-content: center;
     width: 100%;
     max-width: 300px; 
-
-    /* पिछली बार के ट्रांसफॉर्म को हटा दिया है, यह अब सही काम करेगा */
 }
 
 
@@ -81,7 +82,7 @@ html, body {
 /* --- Responsive Adjustments --- */
 @media (max-width: 600px) {
     .button-container {
-        top: 85vh !important; /* छोटे स्क्रीन पर 85vh पर ही रहने दें */
+        transform: translate(-50%, 150px) !important; /* छोटे स्क्रीन पर कम नीचे धकेलें */
     }
     .download-button-skyblue {
         padding: 10px 20px;
