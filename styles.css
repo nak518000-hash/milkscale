@@ -3,9 +3,9 @@ html, body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    width: 100%; /* vh की जगह % का उपयोग */
-    min-height: 100vh; /* <--- मुख्य बदलाव: कम से कम 100vh */
-    overflow-y: auto; /* <--- केवल वर्टिकल स्क्रॉलिंग की अनुमति दें */
+    width: 100%;
+    min-height: 100vh; 
+    overflow-y: auto; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,28 +18,33 @@ html, body {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
-    background-size: contain; /* पूरी इमेज दिखेगी */
+    background-size: contain; /* इमेज पूरी दिखेगी */
     background-position: center center;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* सेंटर में इमेज */
+    align-items: center; /* सेंटर में इमेज */
     position: absolute; 
     top: 0;
     left: 0;
 }
 
-/* --- Button Container (बटन को इमेज के ऊपर फ़ोन स्क्रीन के नीचे रखने के लिए) --- */
+/* --- Button Container (बटन को फ़ोन स्क्रीन इमेज के नीचे रखने के लिए) --- */
 .button-container {
     position: absolute; 
-    top: 70vh !important; /* <--- 70vh पर ही रहने दें */
-    left: 50% !important; 
-    transform: translate(-50%, -50%) !important;
+
+    /* <--- मुख्य बदलाव: बटन को स्क्रीन के 85% नीचे लाओ */
+    top: 85vh !important; 
+
+    left: 50% !important; /* केंद्र में रखें */
+    transform: translateX(-50%); /* बटन को सही केंद्र में लाएं */
     z-index: 100; 
     display: flex;
     justify-content: center;
     width: 100%;
     max-width: 300px; 
+
+    /* पिछली बार के ट्रांसफॉर्म को हटा दिया है, यह अब सही काम करेगा */
 }
 
 
@@ -76,7 +81,7 @@ html, body {
 /* --- Responsive Adjustments --- */
 @media (max-width: 600px) {
     .button-container {
-        top: 75vh !important; /* छोटे स्क्रीन पर 75vh पर रहने दें */
+        top: 85vh !important; /* छोटे स्क्रीन पर 85vh पर ही रहने दें */
     }
     .download-button-skyblue {
         padding: 10px 20px;
