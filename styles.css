@@ -9,12 +9,14 @@ body {
     min-height: 100vh;
     background-color: #000; /* इमेज लोड न होने पर काला बैकग्राउंड */
     overflow: hidden; /* अनावश्यक स्क्रॉलिंग रोकें */
+    width: 100vw; /* सुनिश्चित करें कि बॉडी पूरी चौड़ाई ले */
+    height: 100vh; /* सुनिश्चित करें कि बॉडी पूरी ऊँचाई ले */
 }
 
 /* --- Hero Section with Full Screen Image --- */
 .hero-section {
-    width: 100vw; /* पूरी स्क्रीन चौड़ी */
-    height: 100vh; /* पूरी स्क्रीन ऊंची */
+    width: 100%; /* यह viewport width का 100% लेगा */
+    height: 100%; /* यह viewport height का 100% लेगा */
     background-image: url('main-background.jpg'); /* आपकी इमेज का नाम यहाँ दें */
     background-size: cover; /* इमेज को पूरी तरह से कवर करें */
     background-position: center; /* इमेज को केंद्र में रखें */
