@@ -36,7 +36,7 @@ html, body {
 .button-container {
     position: absolute; /* इसे एब्सोल्यूट पोजीशनिंग दें */
     /* अब हम सीधे इमेज के टॉप से मापेंगे */
-    top: 70vh !important; /* <--- मुख्य बदलाव: Viewport Height का उपयोग करें (70% नीचे) */
+    top: 50vh !important; /* <--- मुख्य बदलाव: Viewport Height का उपयोग करें (70% नीचे) */
                            /* '!important' यह सुनिश्चित करेगा कि यह नियम लागू हो */
     left: 50% !important; /* <--- इसे केंद्र में रखने के लिए */
     transform: translate(-50%, -50%) !important; /* <--- खुद को केंद्र में लाएं और थोड़ा ऊपर-नीचे करें */
