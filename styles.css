@@ -5,11 +5,12 @@ html, body {
     padding: 0;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* सुनिश्चित करें कि कोई स्क्रॉल बार न हो */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FFFFFF;
+    position: relative; /* बॉडी को रिलेटिव पोजीशन दें */
 }
 
 /* --- Hero Section with Full Screen Image --- */
@@ -17,42 +18,33 @@ html, body {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
-    background-size: contain;
+    background-size: contain; /* पूरी इमेज दिखेगी */
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed;  इसे हटा रहे हैं, कभी-कभी समस्या कर सकता है */
     display: flex;
     justify-content: center;
-    align-items: center; /* इसे center कर दिया ताकि इमेज बीच में रहे */
-    position: relative;
-}
-
-.content-overlay {
-    position: absolute;
+    align-items: center;
+    position: absolute; /* हीरो सेक्शन को एब्सोल्यूट बनाएं */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.0);
-    box-sizing: border-box;
 }
+
+/* content-overlay को हटा दिया है, क्योंकि अब इसकी ज़रूरत नहीं */
 
 /* --- Button Container (बटन को इमेज के ऊपर फ़ोन स्क्रीन के नीचे रखने के लिए) --- */
 .button-container {
-    position: absolute;
-    /* हम बटन को ऊपर से 60% नीचे ला रहे हैं, ताकि वह इमेज के केंद्र से नीचे की ओर जाए */
-    top: 60%; /* <--- मुख्य बदलाव: 70% ऊपर से नीचे लाओ */
-    z-index: 10;
+    position: absolute; /* इसे एब्सोल्यूट पोजीशनिंग दें */
+    /* अब हम सीधे इमेज के टॉप से मापेंगे */
+    top: 70vh !important; /* <--- मुख्य बदलाव: Viewport Height का उपयोग करें (70% नीचे) */
+                           /* '!important' यह सुनिश्चित करेगा कि यह नियम लागू हो */
+    left: 50% !important; /* <--- इसे केंद्र में रखने के लिए */
+    transform: translate(-50%, -50%) !important; /* <--- खुद को केंद्र में लाएं और थोड़ा ऊपर-नीचे करें */
+    z-index: 100; /* <--- सुनिश्चित करें कि यह सब कुछ के ऊपर हो */
     display: flex;
     justify-content: center;
-    width: 100%;
-    /* इसे थोड़ा ऊपर खींचने के लिए ट्रांसफॉर्म का उपयोग करें (ताकि यह 70% से थोड़ा ऊपर जाए) */
-    transform: translateY(-50%); 
+    width: 100%; /* बटन कंटेनर पूरी चौड़ाई ले सकता है */
+    max-width: 300px; /* बटन के लिए एक अधिकतम चौड़ाई निर्धारित करें */
 }
 
 
@@ -74,6 +66,7 @@ html, body {
     text-decoration: none;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    white-space: nowrap; /* सुनिश्चित करें कि बटन टेक्स्ट एक लाइन में रहे */
 }
 
 .download-button-skyblue:hover {
@@ -88,6 +81,10 @@ html, body {
 /* --- Responsive Adjustments --- */
 @media (max-width: 600px) {
     .button-container {
-        top: 75%; /* छोटे स्क्रीन पर 75% से मापना (और नीचे) */
+        top: 75vh !important; /* छोटे स्क्रीन पर थोड़ा और नीचे */
+    }
+    .download-button-skyblue {
+        padding: 10px 20px;
+        font-size: 16px;
     }
 }
