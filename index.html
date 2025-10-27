@@ -8,124 +8,160 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
-        /* Basic reset */
+        /* General Setup */
         body, html {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            overflow-x: hidden; /* Horizontal scrollbar hataya gaya */
+            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* Main Section: Image aur Button ko rakhta hai */
+        /* Main Content & Image */
         .main-content {
             flex-grow: 1;
             position: relative;
             text-align: center;
         }
-
-        /* Image Styling */
         .background-image {
             width: 100%;
             background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
             background-size: cover;
             background-position: top center;
             background-repeat: no-repeat;
-            
-            /* **Responsiveness Fix 1: Mobile ke liye height thoda kam** */
             height: 80vh; 
-            
             display: block; 
         }
 
-        /* Button Positioning (Image bottom se 30% upar) */
+        /* Button Positioning */
         .button-wrapper {
             position: absolute; 
-            top: 70%; /* Image ke bottom se 30% upar */
+            top: 80%; /* Image के बॉटम से 20% ऊपर */
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
         }
 
-
-        /* Download Button ki style */
+        /* Download Button Default (Desktop) Style */
         .download-button {
             background-color: #28a745; 
             color: white;
-            padding: 18px 50px;
+            padding: 18px 50px; /* Desktop Padding */
             border-radius: 10px;
             text-decoration: none;
-            font-size: 26px;
+            font-size: 26px; /* Desktop Font Size */
             font-weight: bold;
-            text-align: center;
-            
             display: flex;
             align-items: center;
             gap: 15px;
-            
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, transform 0.1s;
-            /* **Previous 'white-space: nowrap;' ko hata diya gaya** */
+            white-space: nowrap; /* Desktop पर एक ही लाइन में रहे */
         }
-
-        /* Hover and Active effects */
         .download-button:hover {
             background-color: #218838;
             transform: translate(-50%, -50%) translateY(-2px); 
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
         }
-        
-        /* Icon size adjustment */
         .download-button i {
             font-size: 28px;
         }
 
-        /* Blue Footer Section (Darker Blue) */
+        /* Blue Footer Section */
         .footer-section {
             width: 100%;
             height: auto; 
-            background-color: #1956a8; /* Dark Blue Colour */
+            background-color: #1956a8; 
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 15px; /* Padding for mobile view */
+            padding: 30px 15px; 
             text-align: center;
             font-size: 16px;
             margin-top: auto; 
         }
-
+        
+        /* Footer Content Default (Desktop) */
         .footer-content {
-            max-width: 90%; /* **FIX 2: Max width ko 90% kiya gaya taaki content na kate** */
+            max-width: 700px; /* Desktop max-width */
             line-height: 1.6;
-            
-            /* **FIX 3: Links ko alag-alag line mein laane ke liye** */
             display: flex;
-            flex-direction: column; /* Vertical stacking for mobile */
-            gap: 10px; /* Spacing between lines */
+            flex-direction: column; 
+            gap: 10px; 
         }
-
-        /* Footer ke links ka color set kiya gaya */
         .footer-content a {
-            color: #ffcc00; /* Bright yellow for better visibility on dark blue */
+            color: #ffcc00; 
             text-decoration: underline;
             font-weight: bold;
-            word-wrap: break-word; /* Long links ko wrap karne mein madad karta hai */
+            word-wrap: break-word; 
         }
-        
         .footer-content p {
-            margin: 0; /* Paragraph margin hataya gaya */
+            margin: 0; 
         }
-        
-        /* Media Query for Desktop: Desktop par links ko horizontal karne ke liye */
+
+        /* ======================================================= */
+        /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) */
+        /* ======================================================= */
+        @media (max-width: 767px) {
+            
+            /* ---- FIX 1: DOWNLOAD BUTTON FOR MOBILE ---- */
+            .download-button {
+                /* Font size kam kiya gaya taaki fit ho sake */
+                font-size: 22px; 
+                /* Padding kam kiya gaya taaki chotay screen par na kate */
+                padding: 15px 30px; 
+                gap: 10px;
+            }
+            .download-button i {
+                 font-size: 24px;
+            }
+
+            /* ---- FIX 2: FOOTER CONTENT FOR MOBILE ---- */
+            .footer-content {
+                max-width: 95%; /* Mobile par zyada jagah lene do */
+                align-items: flex-start; /* Left align kiya gaya taaki text right se na kate */
+                text-align: left;
+            }
+            
+            .footer-content .main-text {
+                /* Main text ko ek hi paragraph mein rakha gaya */
+                margin-bottom: 20px;
+                text-align: center; /* Main paragraph ko center mein rakha gaya */
+            }
+
+            .footer-links {
+                /* Links ko right side mein aur ek-dusre ke upar-neeche rakha gaya */
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end; /* Links ko right-align kiya gaya */
+                gap: 5px;
+            }
+        }
+
+        /* Media Query for Desktop: Links ko horizontal karne ke liye */
         @media (min-width: 768px) {
             .footer-content {
-                max-width: 700px;
-                flex-direction: row; /* Desktop par links horizontal honge */
-                justify-content: space-around;
+                flex-direction: row; 
+                justify-content: space-between;
                 align-items: center;
+            }
+            .footer-content .main-text {
+                /* Desktop par main text ko left side mein zyada jagah di gayi */
+                flex-basis: 60%;
+                text-align: left;
+                margin-right: 20px;
+            }
+            .footer-links {
+                /* Desktop par links ko right side mein ek column mein rakha gaya */
+                flex-basis: 35%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
             }
         }
     </style>
@@ -141,9 +177,7 @@
                download>
                 
                 <i class="fab fa-android"></i> 
-                
                 Download App 
-                
                 <i class="fas fa-download"></i>
             </a>
         </div>
@@ -151,27 +185,31 @@
     
     <div class="footer-section">
         <div class="footer-content">
-            <p style="margin-bottom: 10px; font-weight: bold;">
-                यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:
-            </p>
-            <p>
-                आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में **Direct Message** के माध्यम से अपनी समस्या बता सकते हैं। आपकी समस्या का समाधान **तुरंत** किया जाएगा।
-            </p>
-            <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 20px auto;">
             
-            <a href="mailto:milkscale.help.request@gmail.com">
-                📧 Email ID: milkscale.help.request@gmail.com
-            </a>
+            <div class="main-text">
+                <p style="font-weight: bold; margin-bottom: 10px;">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>
+                <p>
+                    आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में **Direct Message** के माध्यम से अपनी समस्या बता सकते हैं। आपकी समस्या का समाधान **तुरंत** किया जाएगा।
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="mailto:milkscale.help.request@gmail.com">
+                    📧 Email ID: milkscale.help.request@gmail.com
+                </a>
+                
+                <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">
+                    💬 Join WhatsApp Group
+                </a>
+                
+                <a href="https://t.me/Milkscale" target="_blank">
+                    📢 Join Telegram Group
+                </a>
+            </div>
             
-            <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">
-                💬 Join WhatsApp Group
-            </a>
-            
-            <a href="https://t.me/Milkscale" target="_blank">
-                📢 Join Telegram Group
-            </a>
         </div>
     </div>
 
 </body>
 </html>
+
