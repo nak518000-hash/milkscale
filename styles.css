@@ -1,4 +1,4 @@
-/* --- Base Reset and Setup (अपडेटेड) --- */
+/* --- Base Reset and Setup (यह वही रहेगा) --- */
 html, body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
@@ -6,18 +6,19 @@ html, body {
     width: 100%;
     height: 100%; 
     overflow-y: auto; 
-    /* --- मुख्य बदलाव: गहरा नारंगी (Dark Orange) बैकग्राउंड कलर --- */
-    background-color: #FF8C00; /* गहरा नारंगी (Dark Orange) रंग */
+    /* गहरा नारंगी (Dark Orange) बैकग्राउंड कलर */
+    background-color: #FF8C00; 
     position: relative; 
 }
 
-/* --- Hero Section with Full Screen Image (बाकी कोड समान) --- */
+/* --- Hero Section with Full Screen Image (मुख्य बदलाव यहाँ है) --- */
 .hero-section {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
-    background-size: cover; 
-    background-position: center top; 
+    /* --- मुख्य बदलाव: चौड़ाई को 100% और ऊँचाई को auto पर सेट करें --- */
+    background-size: 100% auto; /* यह ज़ूमिंग को कम करेगा */
+    background-position: center top; /* इमेज को ऊपर केंद्रित करेगा */
     
     background-repeat: no-repeat;
     position: fixed; 
@@ -26,7 +27,7 @@ html, body {
     z-index: 1; 
 }
 
-/* --- Button Container (बाकी कोड समान) --- */
+/* --- Button Container (बाकी कोड वही रहेगा) --- */
 .button-container {
     z-index: 100; 
     display: flex;
@@ -37,7 +38,7 @@ html, body {
 }
 
 
-/* --- Sky Blue Download Button (बाकी कोड समान) --- */
+/* --- Sky Blue Download Button (बाकी कोड वही रहेगा) --- */
 .download-button-skyblue {
     display: inline-flex;
     align-items: center;
