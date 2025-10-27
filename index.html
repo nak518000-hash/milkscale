@@ -1,24 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Download Page</title>
-    
-    <link rel="stylesheet" href="style.css">
+    <title>Download App</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Basic reset for browser settings */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* website-container: Poore page ko cover karta hai aur photo (background) set karta hai */
+        .website-container {
+            height: 100vh; /* Poori screen ki height */
+            width: 100vw; /* Poori screen ki width */
+            
+            /* Aapki di hui image ka link background mein set kiya gaya hai */
+            background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
+            background-size: cover; /* Image ko poore container par faila dega */
+            background-position: center; /* Image ko beech mein rakhega */
+            background-repeat: no-repeat;
+            
+            /* Flexbox ka upyog karke button ko page ke theek beech mein laya jayega */
+            display: flex;
+            justify-content: center; /* Horizontal (X-axis) mein center */
+            align-items: center; /* Vertical (Y-axis) mein center */
+        }
+
+        /* Download Button ki style */
+        .download-button {
+            /* Button ka colour green */
+            background-color: #28a745; 
+            color: white; /* Text ka colour safed */
+            padding: 18px 35px; /* Button ka size (padding) */
+            border-radius: 10px; /* Gol kona (Rounded corners) */
+            text-decoration: none; /* Link ke neeche ki line hatata hai */
+            font-size: 26px; /* Text ka size */
+            font-weight: bold;
+            text-align: center;
+            
+            /* Icons aur text ke beech space ke liye */
+            display: flex;
+            align-items: center;
+            gap: 12px; /* Icons aur text ke beech ki doori */
+            
+            /* Thoda shadow effect taaki button alag se dikhe */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        /* Mouse jab button par ho (Hover effect) */
+        .download-button:hover {
+            background-color: #218838; /* Halka gehra hara */
+            transform: translateY(-2px); /* Halka sa upar uthana */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Jab button par click kiya jaaye (Active effect) */
+        .download-button:active {
+            background-color: #1e7e34;
+            transform: translateY(0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Icon size adjustment */
+        .download-button i {
+            font-size: 28px;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="background-container">
-        
-        <a href="https://drive.google.com/uc?export=download&id=1_vcnw0BinfcT35OInuyCxWUDAlzzA-5S" class="download-button" download>
-            <i class="fab fa-android"></i> Download App
-            <i class="fas fa-download"></i> </a>
+    <div class="website-container">
+        <a href="https://drive.google.com/uc?export=download&id=1_vcnw0BinfcT35OInuyCxWUDAlzzA-5S" 
+           class="download-button" 
+           download>
+            
+            <i class="fab fa-android"></i> 
+            
+            Download App 
+            
+            <i class="fas fa-download"></i>
+        </a>
     </div>
-
-    <script src="script.js"></script>
 
 </body>
 </html>
