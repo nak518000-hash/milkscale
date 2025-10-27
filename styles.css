@@ -6,12 +6,12 @@ html, body {
     width: 100%;
     height: 100%; 
     overflow-y: auto; 
-    /* --- मुख्य बदलाव: हल्का स्काई ब्लू बैकग्राउंड कलर --- */
-    background-color: #E0FFFF; /* बहुत हल्का एक्वा/स्काई ब्लू रंग */
+    /* --- मुख्य बदलाव: हल्का ऑरेंज/पीच बैकग्राउंड कलर --- */
+    background-color: #FFF5E0; /* बहुत हल्का पीच (Light Orange/Peach) रंग */
     position: relative; 
 }
 
-/* --- Hero Section with Full Screen Image (यह वही कवर मोड है) --- */
+/* --- Hero Section with Full Screen Image (बाकी कोड समान) --- */
 .hero-section {
     width: 100%;
     height: 100%;
