@@ -1,46 +1,43 @@
-/* --- Base Reset and Setup --- */
+/* --- Base Reset and Setup (अपडेटेड) --- */
 html, body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* खाली जगह (whitespace) को खत्म करने के लिए */
     width: 100%;
     height: 100%; 
     overflow-y: auto; 
-    background-color: #FFFFFF;
+    /* --- मुख्य बदलाव: हल्का स्काई ब्लू बैकग्राउंड कलर --- */
+    background-color: #E0FFFF; /* बहुत हल्का एक्वा/स्काई ब्लू रंग */
     position: relative; 
 }
 
-/* --- Hero Section with Full Screen Image --- */
+/* --- Hero Section with Full Screen Image (यह वही कवर मोड है) --- */
 .hero-section {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
-    /* --- मुख्य बदलाव: 'contain' की जगह 'cover' का उपयोग करें --- */
     background-size: cover; 
-    /* इमेज को ऊपर की तरफ केंद्रित करें ताकि बटन को नीचे जगह मिले */
     background-position: center top; 
     
     background-repeat: no-repeat;
-    /* 'fixed' का उपयोग करें ताकि यह हमेशा व्यूपोर्ट के आकार का रहे */
     position: fixed; 
     top: 0;
     left: 0;
     z-index: 1; 
 }
 
-/* --- Button Container (जावास्क्रिप्ट द्वारा नियंत्रित होगा) --- */
+/* --- Button Container (बाकी कोड समान) --- */
 .button-container {
-    z-index: 100; /* सुनिश्चित करें कि यह इमेज के ऊपर हो */
+    z-index: 100; 
     display: flex;
     justify-content: center;
     width: 100%;
     max-width: 300px; 
-    position: absolute; /* यह महत्वपूर्ण है ताकि JavaScript 'top' सेट कर सके */
+    position: absolute;
 }
 
 
-/* --- Sky Blue Download Button (बाकी CSS वैसा ही है) --- */
+/* --- Sky Blue Download Button (बाकी कोड समान) --- */
 .download-button-skyblue {
     display: inline-flex;
     align-items: center;
