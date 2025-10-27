@@ -3,11 +3,10 @@ html, body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* खाली जगह (whitespace) को खत्म करने के लिए, सुनिश्चित करें कि यह पूरा व्यूपोर्ट कवर करे */
+    /* खाली जगह (whitespace) को खत्म करने के लिए */
     width: 100%;
-    height: 100%; /* min-height के बजाय height का उपयोग करें */
-    overflow-y: auto; /* यदि सामग्री बढ़ती है तो स्क्रॉलिंग की अनुमति देता है */
-    /* display: flex को body से हटाया गया ताकि कंटेंट सामान्य प्रवाह में रहे */
+    height: 100%; 
+    overflow-y: auto; 
     background-color: #FFFFFF;
     position: relative; 
 }
@@ -17,30 +16,31 @@ html, body {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
-    /* 'contain' को 'cover' से बदलें यदि आप चाहते हैं कि इमेज पूरे स्क्रीन को भरे, भले ही कुछ हिस्सा कट जाए। यदि आप चाहते हैं कि इमेज पूरी दिखे और स्क्रीन पर फिट हो जाए, तो 'contain' रखें। आपकी पिछली आवश्यकता के अनुसार 'contain' रखा गया है। */
-    background-size: contain; 
-    background-position: center center;
+    /* --- मुख्य बदलाव: 'contain' की जगह 'cover' का उपयोग करें --- */
+    background-size: cover; 
+    /* इमेज को ऊपर की तरफ केंद्रित करें ताकि बटन को नीचे जगह मिले */
+    background-position: center top; 
+    
     background-repeat: no-repeat;
-    /* absolute पोजीशनिंग के कारण, इसमें अब body जितना आकार है */
-    position: fixed; /* 'fixed' का उपयोग करें ताकि यह हमेशा व्यूपोर्ट के आकार का रहे, 'absolute' का भी उपयोग कर सकते हैं यदि body की ऊंचाई 100% है */
+    /* 'fixed' का उपयोग करें ताकि यह हमेशा व्यूपोर्ट के आकार का रहे */
+    position: fixed; 
     top: 0;
     left: 0;
-    z-index: 1; /* बटन के नीचे रहे */
+    z-index: 1; 
 }
 
 /* --- Button Container (जावास्क्रिप्ट द्वारा नियंत्रित होगा) --- */
 .button-container {
-    /* जावास्क्रिप्ट अब इसकी position को 'absolute' सेट करेगी */
     z-index: 100; /* सुनिश्चित करें कि यह इमेज के ऊपर हो */
     display: flex;
     justify-content: center;
     width: 100%;
     max-width: 300px; 
-    /* सुनिश्चित करें कि button-container body के अंदर हो, जो कि HTML में पहले से ही है। */
-    position: absolute; /* जावास्क्रिप्ट के बजाय CSS में ही position: absolute सेट करें */
+    position: absolute; /* यह महत्वपूर्ण है ताकि JavaScript 'top' सेट कर सके */
 }
 
-/* --- Sky Blue Download Button (छोटा और आइकन के साथ) --- */
+
+/* --- Sky Blue Download Button (बाकी CSS वैसा ही है) --- */
 .download-button-skyblue {
     display: inline-flex;
     align-items: center;
