@@ -6,8 +6,8 @@ html, body {
     width: 100%;
     height: 100%; 
     overflow-y: auto; 
-    /* --- मुख्य बदलाव: हल्का ऑरेंज/पीच बैकग्राउंड कलर --- */
-    background-color: #FFF5E0; /* बहुत हल्का पीच (Light Orange/Peach) रंग */
+    /* --- मुख्य बदलाव: गहरा नारंगी (Dark Orange) बैकग्राउंड कलर --- */
+    background-color: #FF8C00; /* गहरा नारंगी (Dark Orange) रंग */
     position: relative; 
 }
 
