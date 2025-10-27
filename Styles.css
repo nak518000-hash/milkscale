@@ -1,0 +1,77 @@
+/* ------------------------- */
+/* Global Reset and Body Styling */
+/* ------------------------- */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    font-family: Arial, sans-serif;
+    position: relative;
+    /* बैकग्राउंड कलर हटा दिया, क्योंकि 'cover' मोड में खाली जगह नहीं होगी */
+}
+
+/* ------------------------- */
+/* Full Screen Background Image Container */
+/* ------------------------- */
+
+.background-container {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png'); /* आपकी इमेज का लिंक */
+    
+    /* ---- मुख्य सुधार: इमेज को पूरी स्क्रीन पर भरने के लिए ---- */
+    background-size: cover; /* इमेज को पूरी स्क्रीन पर फैलाएगा (कुछ हिस्से कट सकते हैं) */
+    background-repeat: no-repeat;
+    background-position: center; /* सुनिश्चित करता है कि इमेज सेंटर में रहे */
+    
+    /* बटन को कंटेनर के हिसाब से पोज़िशन करने के लिए ज़रूरी */
+    position: relative; 
+    
+    box-sizing: border-box;
+}
+
+/* ------------------------- */
+/* Download Button Styling and Positioning */
+/* ------------------------- */
+
+.download-button {
+    /* पोज़िशनिंग: इसे इमेज के कंटेनर के हिसाब से नीचे सेंटर में फ़िक्स करता है */
+    position: absolute; 
+    bottom: 50px; /* नीचे से 50px ऊपर */
+    left: 50%; /* 50% बाईं ओर (left) */
+    transform: translateX(-50%); /* अपनी खुद की चौड़ाई का 50% वापस खिसकाकर एकदम सेंटर में लाएं */
+    
+    /* ---- मुख्य सुधार: बटन की चौड़ाई बढ़ाने के लिए ---- */
+    min-width: 250px; /* बटन की न्यूनतम चौड़ाई सेट करें */
+    justify-content: space-between; /* आइकन और टेक्स्ट को फैलाकर रखें */
+    /* ------------------------------------------------ */
+    
+    /* सामान्य स्टाइल */
+    background-color: #4CAF50; /* हरा रंग */
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none; 
+    display: flex;
+    align-items: center;
+    /* gap: 10px; हटा दिया गया क्योंकि space-between का इस्तेमाल किया गया है */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 10; 
+}
+
+.download-button:hover {
+    background-color: #45a049;
+    transform: translate(-50%, -2px); 
+}
+
+/* Icons Styling */
+.download-button i {
+    font-size: 22px;
+}
