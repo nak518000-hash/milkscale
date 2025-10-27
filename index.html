@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Horizontal scrollbar hataya gaya */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -34,6 +34,7 @@
             background-position: top center;
             background-repeat: no-repeat;
             
+            /* **Responsiveness Fix 1: Mobile ke liye height thoda kam** */
             height: 80vh; 
             
             display: block; 
@@ -48,13 +49,12 @@
             z-index: 10;
         }
 
+
         /* Download Button ki style */
         .download-button {
             background-color: #28a745; 
             color: white;
-            
-            padding: 18px 50px; /* Width badhaya gaya */
-            
+            padding: 18px 50px;
             border-radius: 10px;
             text-decoration: none;
             font-size: 26px;
@@ -67,7 +67,7 @@
             
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, transform 0.1s;
-            white-space: nowrap;
+            /* **Previous 'white-space: nowrap;' ko hata diya gaya** */
         }
 
         /* Hover and Active effects */
@@ -85,22 +85,26 @@
         /* Blue Footer Section (Darker Blue) */
         .footer-section {
             width: 100%;
-            /* Height 20vh rakhi gayi hai, aapke content ke hisaab se badal sakte hain */
             height: auto; 
             background-color: #1956a8; /* Dark Blue Colour */
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 15px; /* Upar niche padding badhaya gaya */
+            padding: 30px 15px; /* Padding for mobile view */
             text-align: center;
             font-size: 16px;
             margin-top: auto; 
         }
 
         .footer-content {
-            max-width: 700px;
+            max-width: 90%; /* **FIX 2: Max width ko 90% kiya gaya taaki content na kate** */
             line-height: 1.6;
+            
+            /* **FIX 3: Links ko alag-alag line mein laane ke liye** */
+            display: flex;
+            flex-direction: column; /* Vertical stacking for mobile */
+            gap: 10px; /* Spacing between lines */
         }
 
         /* Footer ke links ka color set kiya gaya */
@@ -108,10 +112,21 @@
             color: #ffcc00; /* Bright yellow for better visibility on dark blue */
             text-decoration: underline;
             font-weight: bold;
+            word-wrap: break-word; /* Long links ko wrap karne mein madad karta hai */
         }
         
         .footer-content p {
-            margin: 10px 0;
+            margin: 0; /* Paragraph margin hataya gaya */
+        }
+        
+        /* Media Query for Desktop: Desktop par links ko horizontal karne ke liye */
+        @media (min-width: 768px) {
+            .footer-content {
+                max-width: 700px;
+                flex-direction: row; /* Desktop par links horizontal honge */
+                justify-content: space-around;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -136,25 +151,27 @@
     
     <div class="footer-section">
         <div class="footer-content">
-            <p>
-                **यदि App Download नहीं हो रहा है:**
+            <p style="margin-bottom: 10px; font-weight: bold;">
+                यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:
             </p>
             <p>
                 आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में **Direct Message** के माध्यम से अपनी समस्या बता सकते हैं। आपकी समस्या का समाधान **तुरंत** किया जाएगा।
             </p>
             <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 20px auto;">
-            <p>
-                📧 **Email ID:** <a href="mailto:milkscale.help.request@gmail.com">milkscale.help.request@gmail.com</a>
-            </p>
-            <p>
-                💬 **WhatsApp Group:** <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">Join WhatsApp Group</a>
-            </p>
-            <p>
-                📢 **Telegram Group:** <a href="https://t.me/Milkscale" target="_blank">Join Telegram Group</a>
-            </p>
+            
+            <a href="mailto:milkscale.help.request@gmail.com">
+                📧 Email ID: milkscale.help.request@gmail.com
+            </a>
+            
+            <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">
+                💬 Join WhatsApp Group
+            </a>
+            
+            <a href="https://t.me/Milkscale" target="_blank">
+                📢 Join Telegram Group
+            </a>
         </div>
     </div>
 
 </body>
 </html>
-
