@@ -6,19 +6,19 @@ html, body {
     width: 100%;
     height: 100%; 
     overflow-y: auto; 
-    /* Dark Orange Background */
+    /* Dark Orange Background (अगर कवर फेल होता है, तो यह दिखेगा) */
     background-color: #FF8C00; 
     position: relative; 
 }
 
-/* --- Hero Section with Full Screen Image (मुख्य बदलाव यहाँ है) --- */
+/* --- Hero Section with Full Screen Image (सभी फाइनल बदलाव यहाँ हैं) --- */
 .hero-section {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
     
-    /* --- मुख्य बदलाव: 'contain' का उपयोग करें ताकि इमेज पूरी दिखे (कटिंग न हो) --- */
-    background-size: contain; 
+    /* --- मुख्य बदलाव 1: 'cover' का उपयोग करें ताकि ऑरेंज रंग न दिखे (इमेज फैले) --- */
+    background-size: cover; 
     
     background-position: center top; 
     background-repeat: no-repeat;
@@ -27,11 +27,8 @@ html, body {
     left: 0;
     z-index: 1; 
 
-    /* पतला 3mm नीला बॉर्डर */
-    border-left: 3mm solid #00BFFF; 
-    border-right: 3mm solid #00BFFF; 
-    
-    box-sizing: border-box; 
+    /* --- मुख्य बदलाव 2: नीला बॉर्डर हटा दिया गया है --- */
+    /* border-left और border-right को हटा दिया गया है */
 }
 
 /* --- Button Container (यह वही रहेगा) --- */
@@ -74,4 +71,3 @@ html, body {
     box-shadow: 0 1px 0 #008DCC;
     transform: translateY(3px);
 }
-
