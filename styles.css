@@ -1,4 +1,4 @@
-/* --- Base Reset and Setup (यह वही रहेगा) --- */
+/* --- Base Reset and Setup --- */
 html, body {
     font-family: 'Poppins', Arial, sans-serif;
     margin: 0;
@@ -6,7 +6,8 @@ html, body {
     width: 100%;
     height: 100%; 
     overflow-y: auto; 
-    background-color: #FF8C00; /* गहरा नारंगी (Dark Orange) बैकग्राउंड कलर */
+    /* गहरा नारंगी (Dark Orange) बैकग्राउंड कलर */
+    background-color: #FF8C00; 
     position: relative; 
 }
 
@@ -15,7 +16,10 @@ html, body {
     width: 100%;
     height: 100%;
     background-image: url('main-background.jpg');
-    background-size: contain; 
+    
+    /* --- मुख्य बदलाव: 'cover' का उपयोग करें ताकि ऊपर/नीचे ऑरेंज रंग न दिखे --- */
+    background-size: cover; 
+    
     background-position: center top; 
     background-repeat: no-repeat;
     position: fixed; 
@@ -23,9 +27,9 @@ html, body {
     left: 0;
     z-index: 1; 
 
-    /* --- मुख्य बदलाव: 10mm नीला बॉर्डर --- */
-    border-left: 10mm solid #00BFFF; /* बाएँ किनारे पर नीला बॉर्डर */
-    border-right: 10mm solid #00BFFF; /* दाएँ किनारे पर नीला बॉर्डर */
+    /* --- मुख्य बदलाव: 10mm से 70% कम करके 3mm नीला बॉर्डर --- */
+    border-left: 3mm solid #00BFFF; /* बाएँ किनारे पर पतला नीला बॉर्डर */
+    border-right: 3mm solid #00BFFF; /* दाएँ किनारे पर पतला नीला बॉर्डर */
     
     /* यह सुनिश्चित करेगा कि बॉर्डर hero-section के अंदर रहे */
     box-sizing: border-box; 
