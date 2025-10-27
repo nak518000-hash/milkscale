@@ -16,29 +16,38 @@
             overflow-x: hidden;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Main content aur footer ko vertically stack karta hai */
         }
 
         /* Main Content & Image */
         .main-content {
-            flex-grow: 1;
+            /* **FIX: Flex-grow 1 dene se yeh bachi hui saari jagah le lega** */
+            flex-grow: 1; 
             position: relative;
             text-align: center;
+            
+            /* **FIX: Height ko automatic rehne dete hain** */
+            height: auto; 
         }
+
         .background-image {
             width: 100%;
             background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
             background-size: cover;
             background-position: top center;
             background-repeat: no-repeat;
-            height: 80vh; 
+            
+            /* **FIX: Height ko vh (viewport height) par set kiya gaya hai** */
+            /* 100vh - footer ki height (approx 20-30vh) = approx 75vh */
+            height: 75vh; 
+            
             display: block; 
         }
 
         /* Button Positioning */
         .button-wrapper {
             position: absolute; 
-            top: 80%; /* Image के बॉटम से 20% ऊपर */
+            top: 75%; /* Image ke bottom se 25% upar (75vh ke hisaab se) */
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
@@ -81,20 +90,20 @@
             padding: 30px 15px; 
             text-align: center;
             font-size: 16px;
-            margin-top: auto; 
+            
+            /* **FIX: margin-top: auto; ko remove kiya gaya, flex-direction: column ke karan ab zaroori nahi** */
+            /* margin-top: 0; */
         }
         
         /* Footer Content: Master container */
         .footer-content {
             max-width: 700px;
-            width: 100%; /* Full width le sake mobile mein */
+            width: 100%; 
             line-height: 1.6;
-            
-            /* Links ko Paragraph ke niche, center mein laane ke liye */
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px; /* Paragraph aur links ke beech ki doori */
+            gap: 20px; 
         }
 
         .footer-content a {
@@ -106,18 +115,17 @@
         
         .footer-content p {
             margin: 0; 
-            padding: 0 5px; /* Side padding for mobile text */
+            padding: 0 5px; 
         }
 
-        /* Links container: Links ko column mein rakhne ke liye */
+        /* Links container */
         .footer-links {
             display: flex;
             flex-direction: column;
-            align-items: center; /* Links ko center align kiya gaya */
+            align-items: center; 
             gap: 5px;
             text-align: center;
         }
-
 
         /* ======================================================= */
         /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) */
@@ -136,6 +144,11 @@
             /* Footer text center align for mobile */
             .footer-content {
                 text-align: center;
+            }
+
+             /* **FIX: Mobile par button ki position adjust ki gayi** */
+             .button-wrapper {
+                top: 75%; 
             }
         }
     </style>
