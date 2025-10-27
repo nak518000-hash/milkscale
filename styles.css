@@ -13,8 +13,8 @@ html, body {
 
 /* --- Hero Section with Full Screen Image (मुख्य बदलाव यहाँ है) --- */
 .hero-section {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     background-image: url('main-background.jpg');
     /* --- मुख्य बदलाव: चौड़ाई को 100% और ऊँचाई को auto पर सेट करें --- */
     background-size: 100% auto; /* यह ज़ूमिंग को कम करेगा */
