@@ -48,17 +48,17 @@
         .download-button {
             background-color: #28a745; 
             color: white;
-            padding: 18px 50px; /* Desktop Padding */
+            padding: 18px 50px;
             border-radius: 10px;
             text-decoration: none;
-            font-size: 26px; /* Desktop Font Size */
+            font-size: 26px; 
             font-weight: bold;
             display: flex;
             align-items: center;
             gap: 15px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, transform 0.1s;
-            white-space: nowrap; /* Desktop पर एक ही लाइन में रहे */
+            white-space: nowrap;
         }
         .download-button:hover {
             background-color: #218838;
@@ -84,84 +84,58 @@
             margin-top: auto; 
         }
         
-        /* Footer Content Default (Desktop) */
+        /* Footer Content: Master container */
         .footer-content {
-            max-width: 700px; /* Desktop max-width */
+            max-width: 700px;
+            width: 100%; /* Full width le sake mobile mein */
             line-height: 1.6;
+            
+            /* Links ko Paragraph ke niche, center mein laane ke liye */
             display: flex;
-            flex-direction: column; 
-            gap: 10px; 
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Paragraph aur links ke beech ki doori */
         }
+
         .footer-content a {
             color: #ffcc00; 
             text-decoration: underline;
             font-weight: bold;
             word-wrap: break-word; 
         }
+        
         .footer-content p {
             margin: 0; 
+            padding: 0 5px; /* Side padding for mobile text */
         }
+
+        /* Links container: Links ko column mein rakhne ke liye */
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Links ko center align kiya gaya */
+            gap: 5px;
+            text-align: center;
+        }
+
 
         /* ======================================================= */
         /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) */
         /* ======================================================= */
         @media (max-width: 767px) {
-            
-            /* ---- FIX 1: DOWNLOAD BUTTON FOR MOBILE ---- */
+            /* Download Button adjustment for mobile */
             .download-button {
-                /* Font size kam kiya gaya taaki fit ho sake */
                 font-size: 22px; 
-                /* Padding kam kiya gaya taaki chotay screen par na kate */
                 padding: 15px 30px; 
                 gap: 10px;
             }
             .download-button i {
                  font-size: 24px;
             }
-
-            /* ---- FIX 2: FOOTER CONTENT FOR MOBILE ---- */
-            .footer-content {
-                max-width: 95%; /* Mobile par zyada jagah lene do */
-                align-items: flex-start; /* Left align kiya gaya taaki text right se na kate */
-                text-align: left;
-            }
             
-            .footer-content .main-text {
-                /* Main text ko ek hi paragraph mein rakha gaya */
-                margin-bottom: 20px;
-                text-align: center; /* Main paragraph ko center mein rakha gaya */
-            }
-
-            .footer-links {
-                /* Links ko right side mein aur ek-dusre ke upar-neeche rakha gaya */
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end; /* Links ko right-align kiya gaya */
-                gap: 5px;
-            }
-        }
-
-        /* Media Query for Desktop: Links ko horizontal karne ke liye */
-        @media (min-width: 768px) {
+            /* Footer text center align for mobile */
             .footer-content {
-                flex-direction: row; 
-                justify-content: space-between;
-                align-items: center;
-            }
-            .footer-content .main-text {
-                /* Desktop par main text ko left side mein zyada jagah di gayi */
-                flex-basis: 60%;
-                text-align: left;
-                margin-right: 20px;
-            }
-            .footer-links {
-                /* Desktop par links ko right side mein ek column mein rakha gaya */
-                flex-basis: 35%;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
+                text-align: center;
             }
         }
     </style>
@@ -192,6 +166,8 @@
                     आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में **Direct Message** के माध्यम से अपनी समस्या बता सकते हैं। आपकी समस्या का समाधान **तुरंत** किया जाएगा।
                 </p>
             </div>
+            
+            <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 15px auto;">
 
             <div class="footer-links">
                 <a href="mailto:milkscale.help.request@gmail.com">
@@ -212,4 +188,3 @@
 
 </body>
 </html>
-
