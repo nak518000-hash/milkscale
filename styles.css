@@ -6,7 +6,7 @@ html, body {
     width: 100%;
     height: 100%; 
     overflow-y: auto; 
-    /* Dark Orange Background (खाली जगह भरने के लिए) */
+    /* Dark Orange Background - यह तभी दिखेगा जब इमेज पूरी तरह कवर न हो, लेकिन cover इसे छिपा देगा */
     background-color: #FF8C00; 
     position: relative; 
 }
@@ -15,12 +15,13 @@ html, body {
 .hero-section {
     width: 100%;
     height: 100%;
+    /* सुनिश्चित करें कि आपकी नई इमेज का नाम 'main-background.jpg' ही है */
     background-image: url('main-background.jpg');
     
-    /* --- मुख्य बदलाव: 'contain' का उपयोग करें ताकि इमेज पूरी दिखे और कटे नहीं --- */
-    background-size: contain; 
+    /* --- मुख्य बदलाव: 'cover' का उपयोग करें ताकि इमेज पूरी स्क्रीन को भरे --- */
+    background-size: cover; 
     
-    background-position: center top; 
+    background-position: center top; /* इमेज को ऊपर केंद्रित करेगा, ताकि नीचे के टेक्स्ट न कटें */
     background-repeat: no-repeat;
     position: fixed; 
     top: 0;
@@ -68,4 +69,3 @@ html, body {
     box-shadow: 0 1px 0 #008DCC;
     transform: translateY(3px);
 }
-
