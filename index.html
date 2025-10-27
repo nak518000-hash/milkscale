@@ -85,7 +85,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 10px; /* Side padding kam kiya gaya */
+            padding: 30px 10px; 
             text-align: center;
             font-size: 16px;
         }
@@ -99,34 +99,46 @@
             flex-direction: column;
             align-items: center;
             gap: 20px; 
+            padding: 0 10px; /* Side padding diya gaya taaki mobile par cut na ho */
         }
 
         .footer-content a {
             color: #ffcc00; 
             text-decoration: underline;
             font-weight: bold;
-            /* Force break for long links */
             word-break: break-all;
             overflow-wrap: break-word; 
         }
         
+        /* Footer Paragraph Text Styling */
         .footer-content p {
             margin: 0; 
             padding: 0; 
-            /* **Ensure text wraps** */
             word-wrap: break-word; 
             overflow-wrap: break-word;
             max-width: 100%;
+            text-align: left; /* **Text ko left align kiya gaya taaki lines evenly wrap ho** */
         }
 
         /* Links container */
         .footer-links {
             display: flex;
             flex-direction: column;
-            align-items: center; 
-            gap: 5px;
-            text-align: center;
+            align-items: flex-start; /* **Links ko left align kiya gaya** */
+            gap: 8px;
+            width: 100%; /* Links container ko puri jagah di gayi */
+            max-width: 400px; /* Links ki width control ki gayi */
         }
+        
+        /* Link styling for your requested format */
+        .footer-links div {
+            text-align: left;
+            word-break: break-word; 
+            overflow-wrap: break-word;
+            width: 100%;
+            line-height: 1.3;
+        }
+
 
         /* ======================================================= */
         /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) */
@@ -143,30 +155,26 @@
                  font-size: 22px;
             }
             
-            /* **FIX: Footer Text Wrapping Final Adjustment** */
+            /* **Mobile Text Wrapping Final Fix** */
             .footer-content {
-                text-align: center;
-                /* **Font size aur kam kiya gaya** */
-                font-size: 13px; 
-                /* **Width 98% tak kam kiya gaya** */
-                width: 98%; 
-            }
-            
-            .footer-content p {
-                line-height: 1.4; 
-                /* **Word breaking ko aur strong kiya gaya** */
-                word-break: break-word;
+                text-align: left; 
+                font-size: 14px; 
+                width: 100%; 
+                padding: 0 5px; 
             }
             
             .main-text {
-                width: 100%;
-                /* Padding diya gaya taaki screen edge se na kate */
+                width: 100%; 
                 padding: 0 5px; 
             }
 
-            .footer-links a {
-                 /* Links ka font size bhi kam kiya gaya */
-                font-size: 13px;
+            .footer-content p {
+                line-height: 1.4; 
+                text-align: center; /* **Paragraph ko center rakha gaya** */
+            }
+
+            .footer-links {
+                align-items: center; /* **Links ko center rakha gaya** */
             }
         }
     </style>
@@ -192,8 +200,8 @@
         <div class="footer-content">
             
             <div class="main-text">
-                <p style="font-weight: bold; margin-bottom: 10px;">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>
-                <p>
+                <p style="font-weight: bold; margin-bottom: 10px; text-align: center;">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>
+                <p style="text-align: center;">
                     आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में **Direct Message** के माध्यम से अपनी समस्या बता सकते हैं। आपकी समस्या का समाधान **तुरंत** किया जाएगा।
                 </p>
             </div>
@@ -201,17 +209,21 @@
             <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 15px auto;">
 
             <div class="footer-links">
-                <a href="mailto:milkscale.help.request@gmail.com">
-                    📧 Email ID: milkscale.help.request@gmail.com
-                </a>
+                <div>
+                    **📧 Email id :** <a href="mailto:milkscale.help.request@gmail.com">milkscale.help.request@gmail.com</a>
+                </div>
                 
-                <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">
-                    💬 Join WhatsApp Group
-                </a>
+                <div>
+                    **💬 Whatsapp group :** <a href="https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt" target="_blank">[https://chat.whatsapp.com/FVhpiIlJQcjIz29OzwXor4?mode=wwt]</a>
+                </div>
                 
-                <a href="https://t.me/Milkscale" target="_blank">
-                    📢 Join Telegram Group
-                </a>
+                <div>
+                    **📢 Teligrame group :** <a href="https://t.me/Milkscale" target="_blank">[https://t.me/milkscalegroup]</a>
+                </div>
+                
+                <div>
+                    **📣 Telegram chanel :** <a href="https://t.me/Milkscale" target="_blank">[https://t.me/milkscaleapp]</a>
+                </div>
             </div>
             
         </div>
