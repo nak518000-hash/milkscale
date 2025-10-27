@@ -14,6 +14,7 @@
             padding: 0;
             height: 100%;
             font-family: Arial, sans-serif;
+            overflow: hidden; /* Scrollbar ko hatata hai, kyuki page fit ho chuka hai */
         }
 
         /* website-container: Poore page ko cover karta hai aur photo (background) set karta hai */
@@ -23,42 +24,54 @@
             
             /* Aapki di hui image ka link background mein set kiya gaya hai */
             background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
-            background-size: cover; /* Image ko poore container par faila dega */
-            background-position: center; /* Image ko beech mein rakhega */
+            
+            /* **FIX 1: Image ko poora dikhane ke liye 'contain'** */
+            background-size: contain; /* Image ko poori tarah dikhayega, bina kaate */
+            background-position: center; /* Image ko theek beech mein rakhega */
             background-repeat: no-repeat;
             
             /* Flexbox ka upyog karke button ko page ke theek beech mein laya jayega */
             display: flex;
+            /* **FIX 2: Button ko upar/neeche ki position dene ke liye** */
             justify-content: center; /* Horizontal (X-axis) mein center */
             align-items: center; /* Vertical (Y-axis) mein center */
+            
+            /* Taaki button image ke theek neeche aa sake, hum ek alag div mein button rakhenge */
         }
+        
+        /* Button ke liye container, taaki hum button ko thoda niche dhakel saken */
+        .button-wrapper {
+            /* **FIX 3: Button ko mobile image ke niche position karne ke liye** */
+            /* Jab background image 'contain' hoti hai, to woh height 100% leti hai. 
+               Margin top ka upyog karke, button ko image par chhape mobile ke theek neeche set kiya gaya hai।
+               Percent value use karne par yeh alag-alag screen size par adjust hoga. */
+            margin-top: 25%; /* Is value ko aap apni zarurat ke hisaab se badal ya ghata sakte hain */
+        }
+
 
         /* Download Button ki style */
         .download-button {
-            /* Button ka colour green */
             background-color: #28a745; 
-            color: white; /* Text ka colour safed */
-            padding: 18px 35px; /* Button ka size (padding) */
-            border-radius: 10px; /* Gol kona (Rounded corners) */
-            text-decoration: none; /* Link ke neeche ki line hatata hai */
-            font-size: 26px; /* Text ka size */
+            color: white;
+            padding: 18px 35px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 26px;
             font-weight: bold;
             text-align: center;
             
-            /* Icons aur text ke beech space ke liye */
             display: flex;
             align-items: center;
-            gap: 12px; /* Icons aur text ke beech ki doori */
+            gap: 12px;
             
-            /* Thoda shadow effect taaki button alag se dikhe */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, transform 0.1s;
         }
 
         /* Mouse jab button par ho (Hover effect) */
         .download-button:hover {
-            background-color: #218838; /* Halka gehra hara */
-            transform: translateY(-2px); /* Halka sa upar uthana */
+            background-color: #218838;
+            transform: translateY(-2px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
         }
 
@@ -78,18 +91,19 @@
 <body>
 
     <div class="website-container">
-        <a href="https://drive.google.com/uc?export=download&id=1_vcnw0BinfcT35OInuyCxWUDAlzzA-5S" 
-           class="download-button" 
-           download>
-            
-            <i class="fab fa-android"></i> 
-            
-            Download App 
-            
-            <i class="fas fa-download"></i>
-        </a>
+        <div class="button-wrapper">
+            <a href="https://drive.google.com/uc?export=download&id=1_vcnw0BinfcT35OInuyCxWUDAlzzA-5S" 
+               class="download-button" 
+               download>
+                
+                <i class="fab fa-android"></i> 
+                
+                Download App 
+                
+                <i class="fas fa-download"></i>
+            </a>
+        </div>
     </div>
 
 </body>
 </html>
-
