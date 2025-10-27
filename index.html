@@ -16,38 +16,30 @@
             overflow-x: hidden;
             min-height: 100vh;
             display: flex;
-            flex-direction: column; /* Main content aur footer ko vertically stack karta hai */
+            flex-direction: column;
         }
 
         /* Main Content & Image */
         .main-content {
-            /* **FIX: Flex-grow 1 dene se yeh bachi hui saari jagah le lega** */
-            flex-grow: 1; 
+            flex-grow: 1;
             position: relative;
             text-align: center;
-            
-            /* **FIX: Height ko automatic rehne dete hain** */
             height: auto; 
         }
-
         .background-image {
             width: 100%;
             background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
             background-size: cover;
             background-position: top center;
             background-repeat: no-repeat;
-            
-            /* **FIX: Height ko vh (viewport height) par set kiya gaya hai** */
-            /* 100vh - footer ki height (approx 20-30vh) = approx 75vh */
             height: 75vh; 
-            
             display: block; 
         }
 
         /* Button Positioning */
         .button-wrapper {
             position: absolute; 
-            top: 75%; /* Image ke bottom se 25% upar (75vh ke hisaab se) */
+            top: 75%; /* Image के बॉटम से 25% ऊपर */
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
@@ -71,9 +63,19 @@
         }
         .download-button:hover {
             background-color: #218838;
+            /* **Hover पर थोड़ा ऊपर उठना जारी रखा गया** */
             transform: translate(-50%, -50%) translateY(-2px); 
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
         }
+        
+        /* **FIX 2: Tap/Active State - Hilega nahi, sirf rang badlega** */
+        .download-button:active {
+            background-color: #1e7e34; /* Darker Green on tap */
+            /* Tap karne par position se hatana band */
+            transform: translate(-50%, -50%); 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
         .download-button i {
             font-size: 28px;
         }
@@ -90,9 +92,6 @@
             padding: 30px 15px; 
             text-align: center;
             font-size: 16px;
-            
-            /* **FIX: margin-top: auto; ko remove kiya gaya, flex-direction: column ke karan ab zaroori nahi** */
-            /* margin-top: 0; */
         }
         
         /* Footer Content: Master container */
@@ -115,7 +114,11 @@
         
         .footer-content p {
             margin: 0; 
-            padding: 0 5px; 
+            /* **FIX 1: Mobile par pura text dikhe isliye padding hataya gaya** */
+            padding: 0; 
+            word-wrap: break-word; /* Long words/URLs ko todne ke liye */
+            overflow-wrap: break-word;
+            max-width: 100%;
         }
 
         /* Links container */
@@ -131,24 +134,25 @@
         /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) */
         /* ======================================================= */
         @media (max-width: 767px) {
+            
             /* Download Button adjustment for mobile */
             .download-button {
-                font-size: 22px; 
-                padding: 15px 30px; 
-                gap: 10px;
+                font-size: 20px; /* Font size aur kam kiya gaya */
+                padding: 12px 25px; /* Padding aur kam kiya gaya */
+                gap: 8px;
             }
             .download-button i {
-                 font-size: 24px;
+                 font-size: 22px;
             }
             
             /* Footer text center align for mobile */
             .footer-content {
                 text-align: center;
             }
-
-             /* **FIX: Mobile par button ki position adjust ki gayi** */
-             .button-wrapper {
-                top: 75%; 
+            
+            /* Footer main text: 95% width diya gaya */
+            .main-text {
+                width: 95%; 
             }
         }
     </style>
