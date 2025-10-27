@@ -4,87 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App Download Page</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
-        /* ------------------------- */
-        /* CSS कोड शुरू */
-        /* ------------------------- */
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden; 
-            font-family: Arial, sans-serif;
-            position: relative;
-            background-color: #000;
-        }
-
-        /* Full Screen Background Image Container */
-        .background-container {
-            width: 100%;
-            height: 100%;
-            background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png'); /* आपकी इमेज का लिंक */
-            
-            /* इमेज को बिना काटे फ़िट करने के लिए */
-            background-size: contain; 
-            background-repeat: no-repeat;
-            background-position: center; 
-            
-            /* बटन को कंटेनर के हिसाब से पोज़िशन करने के लिए ज़रूरी */
-            position: relative; /* ताकि .download-button इस कंटेनर के अंदर पोज़िशन हो सके */
-            
-            box-sizing: border-box;
-        }
-
-        /* Download Button Styling and Positioning */
-        .download-button {
-            /* पोज़िशनिंग: इसे इमेज के कंटेनर के हिसाब से नीचे सेंटर में फ़िक्स करता है */
-            position: absolute; 
-            bottom: 50px; /* नीचे से 50px ऊपर */
-            left: 50%; /* 50% बाईं ओर (left) */
-            transform: translateX(-50%); /* अपनी खुद की चौड़ाई का 50% वापस खिसकाकर एकदम सेंटर में लाएं */
-            
-            /* सामान्य स्टाइल */
-            background-color: #4CAF50; /* हरा रंग */
-            color: white;
-            padding: 15px 30px;
-            font-size: 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none; /* लिंक स्टाइल हटाने के लिए */
-            display: flex;
-            align-items: center;
-            gap: 10px; 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.2s;
-            z-index: 10; 
-        }
-
-        .download-button:hover {
-            background-color: #45a049;
-            transform: translate(-50%, -2px); /* माउस ओवर पर थोड़ा ऊपर और सेंटर में रहे */
-        }
-
-        /* Icons Styling */
-        .download-button i {
-            font-size: 22px;
-        }
-
-        /* ------------------------- */
-        /* CSS कोड ख़त्म */
-        /* ------------------------- */
-    </style>
 </head>
 <body>
 
     <div class="background-container">
+        
         <a href="https://drive.google.com/uc?export=download&id=1_vcnw0BinfcT35OInuyCxWUDAlzzA-5S" class="download-button" download>
             <i class="fab fa-android"></i> Download App
             <i class="fas fa-download"></i> </a>
     </div>
 
-    </body>
+    <script src="script.js"></script>
+
+</body>
 </html>
+
