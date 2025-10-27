@@ -8,44 +8,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
-        /* Basic reset for browser settings */
+        /* Basic reset */
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Scrollbar ko hatata hai, kyuki page fit ho chuka hai */
+            overflow-x: hidden; /* Horizontal scrollbar hatata hai */
+            min-height: 100vh; /* Minimum height for the entire page */
+            display: flex;
+            flex-direction: column;
         }
 
-        /* website-container: Poore page ko cover karta hai aur photo (background) set karta hai */
-        .website-container {
-            height: 100vh; /* Poori screen ki height */
-            width: 100vw; /* Poori screen ki width */
+        /* Main Section: Image aur Button ko rakhta hai */
+        .main-content {
+            flex-grow: 1; /* Baki jagah yahi lega */
+            position: relative; /* Button ko absolute position dene ke liye */
+            text-align: center; /* Button ko center karne ke liye */
+        }
+
+        /* Image Styling */
+        .background-image {
+            width: 100%; /* Image poori screen ki chaudaai (width) legi */
             
-            /* Aapki di hui image ka link background mein set kiya gaya hai */
+            /* Aapki di hui image ka link */
             background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
-            
-            /* **FIX 1: Image ko poora dikhane ke liye 'contain'** */
-            background-size: contain; /* Image ko poori tarah dikhayega, bina kaate */
-            background-position: center; /* Image ko theek beech mein rakhega */
+            background-size: cover; /* Background ko cover karega */
+            background-position: top center; /* Image ko top se shuru karega */
             background-repeat: no-repeat;
             
-            /* Flexbox ka upyog karke button ko page ke theek beech mein laya jayega */
-            display: flex;
-            /* **FIX 2: Button ko upar/neeche ki position dene ke liye** */
-            justify-content: center; /* Horizontal (X-axis) mein center */
-            align-items: center; /* Vertical (Y-axis) mein center */
+            /* Height set ki gayi hai jisse mobile screen theek se bhar jaye aur footer ke liye jagah bache. 
+               Is value ko aap apne hisaab se badal sakte hain. */
+            height: 80vh; 
             
-            /* Taaki button image ke theek neeche aa sake, hum ek alag div mein button rakhenge */
+            /* Image ke neeche ka white space hatane ke liye */
+            display: block; 
         }
-        
-        /* Button ke liye container, taaki hum button ko thoda niche dhakel saken */
+
+        /* Button Positioning */
         .button-wrapper {
-            /* **FIX 3: Button ko mobile image ke niche position karne ke liye** */
-            /* Jab background image 'contain' hoti hai, to woh height 100% leti hai. 
-               Margin top ka upyog karke, button ko image par chhape mobile ke theek neeche set kiya gaya hai।
-               Percent value use karne par yeh alag-alag screen size par adjust hoga. */
-            margin-top: 25%; /* Is value ko aap apni zarurat ke hisaab se badal ya ghata sakte hain */
+            position: absolute; /* Image ke upar float karega */
+            top: 60%; /* Button ko image ki height ke 60% par position karega (mobile screen ke neeche) */
+            left: 50%; /* Horizontal center */
+            transform: translate(-50%, -50%); /* Theek beech mein lane ka tareeka */
+            z-index: 10; /* Button hamesha image ke upar dikhe */
         }
 
 
@@ -68,29 +73,45 @@
             transition: background-color 0.3s, transform 0.1s;
         }
 
-        /* Mouse jab button par ho (Hover effect) */
+        /* Hover and Active effects */
         .download-button:hover {
             background-color: #218838;
-            transform: translateY(-2px);
+            transform: translateY(-2px) translate(-50%, -50%); /* Transform maintain kiya gaya */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
         }
-
-        /* Jab button par click kiya jaaye (Active effect) */
-        .download-button:active {
-            background-color: #1e7e34;
-            transform: translateY(0);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
+        
         /* Icon size adjustment */
         .download-button i {
             font-size: 28px;
+        }
+
+        /* Blue Footer Section */
+        .footer-section {
+            width: 100%;
+            height: 20vh; /* Image ke bache hue hisse ko cover karega (80vh + 20vh = 100vh) */
+            background-color: #007bff; /* Blue Colour */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0; /* Upar niche padding */
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .footer-content {
+            /* Yahan aap apna Privacy Policy, Help Center, About Us etc. daal sakte hain */
+            /* Filhal ek dummy text diya gaya hai */
+            max-width: 90%;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
-    <div class="website-container">
+    <div class="main-content">
+        <div class="background-image"></div>
+        
         <div class="button-wrapper">
             <a href="https://drive.google.com/uc?export=download&id=1_vcnw0BinfcT35OInuyCxWUDAlzzA-5S" 
                class="download-button" 
@@ -104,6 +125,16 @@
             </a>
         </div>
     </div>
+    
+    <div class="footer-section">
+        <div class="footer-content">
+            <p>
+                आपकी जानकारी (जैसे: Privacy Policy, Help Center, About Us) यहाँ नीले सेक्शन में आएगी। 
+                आप इस टेक्स्ट को अपनी जरूरत के हिसाब से बदल सकते हैं।
+            </p>
+            </div>
+    </div>
 
 </body>
 </html>
+
