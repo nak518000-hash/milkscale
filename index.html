@@ -17,6 +17,9 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            
+            /* **FIX 1: Background ko Blue kiya gaya** */
+            background-color: #1956a8; 
         }
 
         /* Main Content & Image */
@@ -63,15 +66,12 @@
         }
         .download-button:hover {
             background-color: #218838;
-            /* **Hover पर थोड़ा ऊपर उठना जारी रखा गया** */
             transform: translate(-50%, -50%) translateY(-2px); 
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
         }
         
-        /* **FIX 2: Tap/Active State - Hilega nahi, sirf rang badlega** */
         .download-button:active {
-            background-color: #1e7e34; /* Darker Green on tap */
-            /* Tap karne par position se hatana band */
+            background-color: #1e7e34;
             transform: translate(-50%, -50%); 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -98,7 +98,7 @@
         .footer-content {
             max-width: 700px;
             width: 100%; 
-            line-height: 1.6;
+            line-height: 1.5; /* Line height thoda kam kiya gaya */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -114,9 +114,8 @@
         
         .footer-content p {
             margin: 0; 
-            /* **FIX 1: Mobile par pura text dikhe isliye padding hataya gaya** */
             padding: 0; 
-            word-wrap: break-word; /* Long words/URLs ko todne ke liye */
+            word-wrap: break-word; 
             overflow-wrap: break-word;
             max-width: 100%;
         }
@@ -137,22 +136,30 @@
             
             /* Download Button adjustment for mobile */
             .download-button {
-                font-size: 20px; /* Font size aur kam kiya gaya */
-                padding: 12px 25px; /* Padding aur kam kiya gaya */
+                font-size: 20px; 
+                padding: 12px 25px; 
                 gap: 8px;
             }
             .download-button i {
                  font-size: 22px;
             }
             
-            /* Footer text center align for mobile */
+            /* **FIX 2: Mobile Text Wrapping Fix** */
             .footer-content {
                 text-align: center;
+                /* Font size thoda kam kiya gaya taaki lines choti ho saken */
+                font-size: 14px; 
             }
             
-            /* Footer main text: 95% width diya gaya */
+            /* Main text width adjust kiya gaya */
             .main-text {
-                width: 95%; 
+                width: 100%; 
+                padding: 0 5px; /* Thoda sa side space diya gaya */
+            }
+
+            .footer-content p {
+                /* Line height thoda aur kam kiya gaya */
+                line-height: 1.4; 
             }
         }
     </style>
