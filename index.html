@@ -32,10 +32,10 @@
             width: 100%;
             /* आपकी इमेज का URL यहाँ उपयोग किया गया है */
             background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
-            background-size: contain; /* इमेज को कंटेन करें */
+            background-size: cover; /* <--- यहाँ बदलाव किया गया है */
             background-position: top center;
             background-repeat: no-repeat;
-            height: 75vh; /* मोबाइल पर इमेज को फिट करने के लिए */
+            height: 100vh; /* <--- यहाँ बदलाव किया गया है, पूरी वर्टिकल स्क्रीन कवर करने के लिए */
             display: block; 
         }
 
@@ -50,7 +50,6 @@
 
         /* Download Button Style */
         .download-button {
-            /* यह वह Raw लिंक है जो सीधा डाउनलोड शुरू करेगा */
             background-color: #28a745; /* हरा रंग */
             color: white;
             padding: 18px 50px;
