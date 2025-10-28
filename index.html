@@ -40,7 +40,8 @@
         /* Button Positioning */
         .button-wrapper {
             position: absolute; 
-            top: 75%;
+            /* **बटन को नीचे करने के लिए टॉप वैल्यू बढ़ाई गई** */
+            top: 78%; 
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
@@ -172,22 +173,21 @@
                 max-width: 100%;
             }
 
-            /* **नया सुधार: 4 लाइन वाले टेक्स्ट के लिए मार्जिन कम करना** */
+            /* 4 लाइन वाले टेक्स्ट के लिए मार्जिन कम करना */
             .line-fix {
-                margin-bottom: 5px !important; /* प्रत्येक लाइन के बाद का स्पेस कम किया गया */
-                line-height: 1.2 !important; /* लाइन की ऊँचाई और कम की गई */
+                margin-bottom: 5px !important; 
+                line-height: 1.2 !important; 
             }
-            /* पहली लाइन को बोल्ड करने के लिए थोड़ा अतिरिक्त स्पेस दे सकते हैं (वैकल्पिक) */
+            /* पहली लाइन को बोल्ड करने के लिए थोड़ा अतिरिक्त स्पेस */
             .main-text p:first-child {
                 font-weight: bold;
                 margin-bottom: 8px !important; 
             }
-            /* 4th लाइन (अंतिम लाइन) के बाद थोड़ा ज़्यादा स्पेस ताकि HR से दूरी बन जाए */
+            /* 4th लाइन (अंतिम लाइन) के बाद थोड़ा ज़्यादा स्पेस */
             .main-text p:last-child {
                 margin-bottom: 15px !important;
             }
-            /* ---------------------------------------------------- */
-
+            
 
             .footer-links {
                 align-items: center;
@@ -233,6 +233,7 @@
                 <p class="line-fix">आपकी समस्या का समाधान **तुरंत** किया जाएगा।</p>
                 
             </div>
+            
             <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 15px auto;">
 
             <div class="footer-links">
