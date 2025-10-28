@@ -31,10 +31,10 @@
         .background-image {
             width: 100%;
             background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
-            background-size: cover;
+            /* **मुख्य बदलाव: इमेज को पूरा दिखाने के लिए 'contain' का उपयोग** */
+            background-size: contain; 
             background-position: top center;
             background-repeat: no-repeat;
-            /* **इमेज की ऊँचाई वापस 75vh कर दी गई है (आपका फ़िक्स)** */
             height: 75vh; 
             display: block; 
         }
@@ -162,7 +162,7 @@
             
             /* फिक्स्ड बटन को मोबाइल पर स्क्रीन के नीचे से और ऊपर रखा गया */
             .fixed-button-wrapper {
-                bottom: 50px; /* नीचे से 50px ऊपर */
+                bottom: 50px; 
             }
             
             /* Mobile Text Wrapping Final Fix */
