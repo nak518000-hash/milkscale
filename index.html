@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            overflow-x: hidden; /* **मुख्य सुधार: क्षैतिज स्क्रॉलिंग को रोका गया** */
+            overflow-x: hidden;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -64,8 +64,7 @@
         }
         .download-button:hover {
             background-color: #218838;
-            /* transform: translate(-50%, -50%) translateY(-2px); */ 
-            transform: translate(-50%, calc(-50% - 2px)); /* Updated for hover effect */
+            transform: translate(-50%, calc(-50% - 2px));
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
         }
         .download-button:active {
@@ -86,7 +85,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 10px; /* **मुख्य सुधार 1: साइड पैडिंग जोड़ा गया** */
+            padding: 30px 10px; 
             text-align: center;
             font-size: 16px;
         }
@@ -106,7 +105,6 @@
             color: #ffcc00; 
             text-decoration: underline;
             font-weight: bold;
-            /* Links ko break karne ke liye sakht CSS */
             word-break: break-all;
             overflow-wrap: break-word; 
         }
@@ -115,7 +113,6 @@
         .footer-content p {
             margin: 0; 
             padding: 0; 
-            /* **मुख्य सुधार 2: वर्ड रैप (Word Wrap) को सुनिश्चित किया गया** */
             word-wrap: break-word; 
             overflow-wrap: break-word;
             max-width: 100%;
@@ -142,7 +139,6 @@
             line-height: 1.3;
         }
 
-
         /* ======================================================= */
         /* MEDIA QUERY FOR MOBILE DEVICES (<= 767px) */
         /* ======================================================= */
@@ -158,24 +154,40 @@
                  font-size: 22px;
             }
             
-            /* **मुख्य सुधार 3: मोबाइल फ़ॉन्ट साइज़ और पैडिंग (Padding) में बदलाव** */
+            /* Mobile Text Wrapping Final Fix */
             .footer-content {
                 text-align: center; 
-                font-size: 13px; /* फ़ॉन्ट साइज़ 16px से 13px किया गया */
+                font-size: 13px; 
                 width: 100%; 
-                padding: 0 5px; /* किनारों से स्पेस दिया गया */
+                padding: 0 5px; 
             }
             
-            /* **मुख्य सुधार 4: टेक्स्ट रैपिंग के लिए पैराग्राफ को बेहतर बनाया गया** */
             .main-text {
                 width: 100%; 
-                padding: 0 5px; /* थोड़ा पैडिंग दिया गया ताकि टेक्स्ट किनारों को न छुए */
+                padding: 0 5px;
             }
 
             .footer-content p {
-                line-height: 1.3; /* लाइन हाइट कम किया गया */
-                max-width: 100%; /* यह सुनिश्चित करता है कि यह कंटेनर की चौड़ाई का उपयोग करे */
+                line-height: 1.3; 
+                max-width: 100%;
             }
+
+            /* **नया सुधार: 4 लाइन वाले टेक्स्ट के लिए मार्जिन कम करना** */
+            .line-fix {
+                margin-bottom: 5px !important; /* प्रत्येक लाइन के बाद का स्पेस कम किया गया */
+                line-height: 1.2 !important; /* लाइन की ऊँचाई और कम की गई */
+            }
+            /* पहली लाइन को बोल्ड करने के लिए थोड़ा अतिरिक्त स्पेस दे सकते हैं (वैकल्पिक) */
+            .main-text p:first-child {
+                font-weight: bold;
+                margin-bottom: 8px !important; 
+            }
+            /* 4th लाइन (अंतिम लाइन) के बाद थोड़ा ज़्यादा स्पेस ताकि HR से दूरी बन जाए */
+            .main-text p:last-child {
+                margin-bottom: 15px !important;
+            }
+            /* ---------------------------------------------------- */
+
 
             .footer-links {
                 align-items: center;
@@ -211,12 +223,16 @@
         <div class="footer-content">
             
             <div class="main-text">
-                <p style="font-weight: bold; margin-bottom: 10px; text-align: center;">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>
-                <p style="text-align: center;">
-                    आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में **Direct Message** के माध्यम से अपनी समस्या बता सकते हैं। आपकी समस्या का समाधान **तुरंत** किया जाएगा।
-                </p>
+                
+                <p class="line-fix">यदि App Download नहीं हो रहा है, तो आप हमें संपर्क करें:</p>
+                
+                <p class="line-fix">आप हमें **Email** कर सकते हैं या **Telegram/WhatsApp Group** में</p>
+                
+                <p class="line-fix">**Direct Message** के माध्यम से अपनी समस्या बता सकते हैं।</p>
+                
+                <p class="line-fix">आपकी समस्या का समाधान **तुरंत** किया जाएगा।</p>
+                
             </div>
-            
             <hr style="border-color: rgba(255, 255, 255, 0.3); width: 80%; margin: 15px auto;">
 
             <div class="footer-links">
