@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download App</title>
+    <title>MilkScale App Download</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
@@ -17,7 +17,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-color: #1956a8; 
+            background-color: #1956a8; /* नीला बैकग्राउंड */
         }
         
         /* Main Content & Image */
@@ -30,27 +30,28 @@
         }
         .background-image {
             width: 100%;
+            /* आपकी इमेज का URL यहाँ उपयोग किया गया है */
             background-image: url('https://i.postimg.cc/fRmB5KnN/main-background.png');
-            /* इमेज को पूरा दिखाने के लिए 'contain' का उपयोग */
-            background-size: contain; 
+            background-size: contain; /* इमेज को कंटेन करें */
             background-position: top center;
             background-repeat: no-repeat;
-            height: 75vh; 
+            height: 75vh; /* मोबाइल पर इमेज को फिट करने के लिए */
             display: block; 
         }
 
         /* बटन को स्थिर (Fixed) करने वाला रैपर */
         .fixed-button-wrapper {
             position: fixed; 
-            bottom: 15vh;    
+            bottom: 15vh;    /* बटन को बॉटम से ऊपर रखें */
             left: 50%;
-            transform: translateX(-50%); 
+            transform: translateX(-50%); /* बटन को सेंटर करें */
             z-index: 1000;   
         }
 
-        /* Download Button Default (Desktop) Style */
+        /* Download Button Style */
         .download-button {
-            background-color: #28a745; 
+            /* यह वह Raw लिंक है जो सीधा डाउनलोड शुरू करेगा */
+            background-color: #28a745; /* हरा रंग */
             color: white;
             padding: 18px 50px;
             border-radius: 10px;
@@ -104,7 +105,7 @@
         }
 
         .footer-content a {
-            color: #ffcc00; 
+            color: #ffcc00; /* गोल्डन/पीला रंग लिंक्स के लिए */
             text-decoration: underline;
             font-weight: bold;
             word-break: break-all;
@@ -219,7 +220,7 @@
     </div>
     
     <div class="fixed-button-wrapper">
-        <a href="https://www.mediafire.com/file/iye5ra3z51j0pjy/MilkScaleApp.apk/file" 
+        <a href="https://raw.githubusercontent.com/nak518000-hash/MilkScaleApp.apk/main/1MilkScale.apk" 
            class="download-button" 
            download="MilkScaleApp.apk"> 
             
