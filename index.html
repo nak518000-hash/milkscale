@@ -85,6 +85,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            /* **Side padding adjust kiya gaya** */
             padding: 30px 10px; 
             text-align: center;
             font-size: 16px;
@@ -99,13 +100,13 @@
             flex-direction: column;
             align-items: center;
             gap: 20px; 
-            padding: 0 10px; /* Side padding diya gaya taaki mobile par cut na ho */
         }
 
         .footer-content a {
             color: #ffcc00; 
             text-decoration: underline;
             font-weight: bold;
+            /* **Links ko break karne ke liye sakht CSS** */
             word-break: break-all;
             overflow-wrap: break-word; 
         }
@@ -117,22 +118,24 @@
             word-wrap: break-word; 
             overflow-wrap: break-word;
             max-width: 100%;
-            text-align: left; /* **Text ko left align kiya gaya taaki lines evenly wrap ho** */
+            text-align: center;
         }
 
         /* Links container */
         .footer-links {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* **Links ko left align kiya gaya** */
+            align-items: center; 
             gap: 8px;
-            width: 100%; /* Links container ko puri jagah di gayi */
-            max-width: 400px; /* Links ki width control ki gayi */
+            width: 100%; 
+            max-width: 400px; 
+            /* **Padding diya gaya taaki content kinare se door rahe** */
+            padding: 0 5px; 
         }
         
         /* Link styling for your requested format */
         .footer-links div {
-            text-align: left;
+            text-align: center; /* **Text ko center mein rakha gaya** */
             word-break: break-word; 
             overflow-wrap: break-word;
             width: 100%;
@@ -157,24 +160,33 @@
             
             /* **Mobile Text Wrapping Final Fix** */
             .footer-content {
-                text-align: left; 
-                font-size: 14px; 
+                text-align: center; 
+                /* **Font Size aur kam kiya gaya (13px)** */
+                font-size: 13px; 
                 width: 100%; 
                 padding: 0 5px; 
             }
             
             .main-text {
                 width: 100%; 
-                padding: 0 5px; 
+                padding: 0; /* Padding hata kar word wrapping ko behtar banaya gaya */
             }
 
             .footer-content p {
-                line-height: 1.4; 
-                text-align: center; /* **Paragraph ko center rakha gaya** */
+                line-height: 1.3; /* Line height aur kam kiya gaya */
             }
 
             .footer-links {
-                align-items: center; /* **Links ko center rakha gaya** */
+                align-items: center;
+                /* Links Container ko thoda aur chota kiya gaya */
+                max-width: 95%; 
+                padding: 0;
+            }
+            
+            .footer-links a {
+                 /* Links ka font size bhi kam kiya gaya */
+                font-size: 13px;
+                display: block; /* Links ko nischit roop se nayi line par laya gaya */
             }
         }
     </style>
