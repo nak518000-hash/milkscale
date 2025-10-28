@@ -20,13 +20,12 @@
             background-color: #1956a8; 
         }
         
-        /* Main Content & Image (अब यह बटन को होल्ड नहीं करेगा, केवल इमेज को) */
+        /* Main Content & Image */
         .main-content {
             flex-grow: 1;
             position: relative;
             text-align: center;
             height: auto; 
-            /* फ़ुटर के साथ ओवरलैप से बचने के लिए इसे थोड़ा और बड़ा कर सकते हैं */
             padding-bottom: 20px; 
         }
         .background-image {
@@ -35,18 +34,18 @@
             background-size: cover;
             background-position: top center;
             background-repeat: no-repeat;
-            /* **इमेज की ऊंचाई 100vh तक बढ़ाई गई ताकि स्क्रॉलिंग स्पष्ट हो** */
-            height: 100vh; 
+            /* **इमेज की ऊँचाई वापस 75vh कर दी गई है (आपका फ़िक्स)** */
+            height: 75vh; 
             display: block; 
         }
 
-        /* 🚀 बटन को स्थिर (Fixed) करने के लिए नया रैपर (Wrapper) */
+        /* बटन को स्थिर (Fixed) करने वाला रैपर */
         .fixed-button-wrapper {
-            position: fixed; /* **मुख्य बदलाव 1: बटन को स्थिर किया गया** */
-            bottom: 15vh;    /* **स्क्रीन के नीचे से 15% ऊपर रखा गया** */
+            position: fixed; 
+            bottom: 15vh;    
             left: 50%;
-            transform: translateX(-50%); /* केवल X-अक्ष पर सेंटर करें */
-            z-index: 1000;   /* अन्य तत्वों के ऊपर रहे */
+            transform: translateX(-50%); 
+            z-index: 1000;   
         }
 
         /* Download Button Default (Desktop) Style */
@@ -61,14 +60,13 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            /* **उभरा हुआ दिखाने के लिए शैडो मज़बूत किया गया** */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
             transition: background-color 0.3s, transform 0.1s;
             white-space: nowrap;
         }
         .download-button:hover {
             background-color: #218838;
-            transform: translateY(-2px); /* फिक्सड बटन के लिए केवल Y-अक्ष पर मूव */
+            transform: translateY(-2px); 
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
         .download-button:active {
@@ -153,7 +151,7 @@
                 font-size: 20px; 
                 padding: 12px 25px; 
                 gap: 8px;
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* मोबाइल पर शैडो एडजस्ट */
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
             }
             .download-button:hover {
                  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
@@ -230,6 +228,7 @@
             <i class="fas fa-download"></i>
         </a>
     </div>
+    
     <div class="footer-section">
         <div class="footer-content">
             
@@ -270,4 +269,3 @@
 
 </body>
 </html>
-
