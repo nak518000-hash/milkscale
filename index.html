@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MilkScale App Download</title>
+    <title>MilkScale App - दूध का हिसाब रखने वाला एप्लीकेशन डाउनलोड करें</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
@@ -28,6 +28,17 @@
             height: auto; 
             padding-bottom: 20px; 
         }
+        
+        /* 🟢 बदलाव 2: H1 हेडिंग के लिए स्टाइल */
+        .app-title {
+            color: white;
+            font-size: 24px;
+            padding: 15px 10px 0;
+            margin: 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
         .background-image {
             width: 100%;
             /* आपकी इमेज का URL यहाँ उपयोग किया गया है */
@@ -147,6 +158,12 @@
         /* ======================================================= */
         @media (max-width: 767px) {
             
+            /* H1 मोबाइल पर छोटा */
+            .app-title {
+                font-size: 20px;
+                padding-top: 10px;
+            }
+            
             /* Download Button adjustment for mobile */
             .download-button {
                 font-size: 20px; 
@@ -216,6 +233,7 @@
 <body>
 
     <div class="main-content">
+        <h1 class="app-title">MilkScale App Official Download Page</h1>
         <div class="background-image"></div>
     </div>
     
@@ -270,3 +288,4 @@
 
 </body>
 </html>
+
